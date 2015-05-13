@@ -1,0 +1,77 @@
+/* Space out content a bit */
+body {
+    padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+.well-mail {
+    background-color: #2191e0;
+    border: 1px solid #2da4e0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+    min-height: 20px;
+    padding: 4px;
+    /*border: thin solid;*/
+}
+
+/* Angular accrodion  start */
+.accordion__container {
+    border: 1px solid #fff;
+}
+.accordion__tab {
+    background: #e7e7e7;
+    border: 1px solid lightgray;
+    /*color: #fff;*/
+   /* border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;*/
+}
+.accordion__tab-title {
+    background: #e7e7e7;
+    padding: 5px;
+    /*cursor: pointer;*/
+}
+.accordion__tab-content {
+    background: #f8f8f8;
+    padding: 20px;
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+/* angular accrodion end */

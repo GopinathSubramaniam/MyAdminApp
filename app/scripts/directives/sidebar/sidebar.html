@@ -1,0 +1,40 @@
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav in" id="side-menu">
+            <sidebar-search></sidebar-search>
+            <li ui-sref-active="active">
+                <a ui-sref="dashboard.home"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+            </li>
+            <!--    <li ui-sref-active="active">
+                    <a ui-sref="dashboard.orders"><i class="fa fa-tasks fa-fw"></i> Orders</a>
+                </li>
+            -->
+            <li ng-class="{active:collapseVar==4}">
+                <a href="" ng-click="check(4)"><i class="fa fa-files-o fa-fw"></i> Orders<span
+                        class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" collapse="collapseVar!=4">
+                    <li ng-class="{active: selectedMenu=='blank'}">
+                        <a href="#/dashboard/orders/IN_PROGRESS"><i class="fa fa-list fa-fw"></i>Pending</a>
+                    </li>
+                    <li ng-class="{active: selectedMenu=='blank'}">
+                        <a href="#/dashboard/orders/ACCEPTED"><i class="fa fa-check fa-fw"></i>Accepted</a>
+                    </li>
+                    <li ng-class="{active: selectedMenu=='blank'}">
+                        <a href="#/dashboard/orders/PROCESSED"><i class="fa fa-road fa-fw"></i>Processed</a>
+                    </li>
+                    <li ng-class="{active: selectedMenu=='blank'}">
+                        <a href="#/dashboard/orders/DELIVERED"><i class="fa fa-hand-o-up fa-fw"></i>Delivered</a>
+                    </li>
+                    <li ng-class="{active: selectedMenu=='blank'}">
+                        <a href="#/dashboard/orders/DECLINED"><i class="fa fa-ban fa-fw"></i>Declined</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div> 
+
+
+

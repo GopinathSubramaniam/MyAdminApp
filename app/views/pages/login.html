@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row col-lg-12">
+        <div class="col-sm-1 col-md-2 col-lg-3">
+            &nbsp;
+        </div>
+        <div class="col-md-4 col-md-8 col-lg-6">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Sign In</h3>
+                </div>
+                <div class="panel-body">
+                    <span class="text-center"><font color="red"><b>{{errorMsg}}</b></font></span>
+                    <form role="form" ng-submit="doLogin(user)">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="E-mail" ng-model="user.email" name="email" type="email" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Password" ng-model="user.password" name="password" type="password" value="">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Enter Location" ng-model="location" name="location" type="text" >
+                            </div>
+                            <div class="form-group">
+                                <label for="shop">Shop</label>
+                                <select class="form-control" id="shop" ng-model="shop" ng-change="findShopBranch()">
+                                    <option ng-repeat="shop in shops" value="{{shop.id}}"> {{shop.name}} </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="shopBranch">Branch</label>
+                                <select class="form-control" id="shopBranch" ng-model="shopBranch">
+                                    <option ng-repeat="shopBranch in shopBranches" value="{{shopBranch.address.id}}"> {{shopBranch.address.branch}} </option>
+                                </select>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                </label>
+                            </div>
+                            <!-- Change this to a button or input when using this as a form -->
+                            <button type="submit" class="btn btn-success">Login</button>
+                            <a href="#/register" class="btn btn-warning">Go To Register</a>
+                            <!--<a ui-sref="dashboard.home" class="btn btn-lg btn-success btn-block">Login</a>-->
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1 col-md-2 col-lg-3">
+            &nbsp;
+        </div>
+    </div>
+</div>

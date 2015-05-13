@@ -1,0 +1,112 @@
+<div class="container-fluid">
+    <div class="row col-sm-4 col-md-6 col-lg-12">
+        <form role="form" ng-submit="doRegister(customer, shopDetail, address)">
+            <div class="col-sm-1 col-md-2 col-lg-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Customer Detail</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Name" ng-model="customer.name" name="customerName"
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Email" ng-model="customer.email"
+                                   name="customerEmail"
+                                   type="email">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Password" ng-model="customer.password"
+                                   name="customerPassword"
+                                   type="password">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Mobile" ng-model="customer.mobile"
+                                   name="customer.mobile"
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Phone" ng-model="customer.phone"
+                                   name="customer.phone"
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1 col-md-2 col-lg-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Shop Detail</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Shop Name" ng-model="shopDetail.name"
+                                   name="shopName"
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Website" ng-model="shopDetail.website"
+                                   name="shopWebsite"
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Register Number"
+                                   ng-model="shopDetail.registerNumber"
+                                   name="shopRegisterNumber"
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Mobile" ng-model="shopDetail.mobile"
+                                   name="customer.mobile"
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Phone" ng-model="shopDetail.phone"
+                                   name="customer.phone"
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1 col-md-2 col-lg-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Shop Address</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Street" ng-model="address.street" name="shopStreet"
+                                   type="text" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="City" ng-model="address.city" name="shopCity"
+                                   type="text" value="">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Branch" ng-model="address.branch" name="shopBranch"
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="State" ng-model="address.state" name="shopState"
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="PinCode" ng-model="address.pinCode"
+                                   name="shopPinCode"
+                                   type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-8 col-lg-12">
+                <div class="col-sm-2 col-md4 col-lg-6">
+                    <button class="btn btn-block btn-primary" type="submit">Register</button>
+                </div>
+                <div class="col-sm-2 col-md4 col-lg-6">
+                    <a class="btn btn-block btn-success" href="#/login">Back To Login</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

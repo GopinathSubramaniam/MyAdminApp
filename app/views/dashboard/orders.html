@@ -1,0 +1,90 @@
+<div class="col-lg-12">&nbsp;</div>
+<br/>
+
+<div class="form-group">
+    <div class="accordion__container" ng-repeat="item in recentItems">
+        <div class="accordion__tab">
+            <div class="accordion__tab-title">
+                <input type="checkbox" class="checkbox" ng-checked="false" id="{{item.id}}"/>
+                    <span ng-click="openTab(item.id)">
+                        <span class="pull-right" style="padding-top: 3.5px">
+                           <i class="fa fa-remove fa-fw"></i></span>
+                           <span style="cursor: pointer">
+                               <small>Subject: {{item.subject}}</small>
+                           </span>
+                        <font size="1">OrderId: {{ item.orderId }}</font>
+                        </span>
+            </div>
+            <div class="col-lg-12 col-md-10 col-sm-6 accordion__tab-content" ng-show="isOpenTab(item.id)">
+                <div class="col-md-6">
+                    <b><u>From Details</u></b>
+                    <table>
+                        <tr>
+                            <td class="text-right">Name &nbsp; </td>
+                            <td class="text-left">{{item.fromName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Email &nbsp;</td>
+                            <td class="text-left">{{item.fromEmail}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Mobile &nbsp;</td>
+                            <td class="text-left">{{item.fromMobile}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Address &nbsp;</td>
+                            <td class="text-left">{{item.fromAddress}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Description &nbsp;</td>
+                            <td class="text-left">{{item.fromDescription}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <b><u>To Details</u></b>
+                    <table>
+                        <tr>
+                            <td class="text-right">Name &nbsp; </td>
+                            <td class="text-left">{{item.toName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Email &nbsp;</td>
+                            <td class="text-left">{{item.toEmail}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Mobile &nbsp;</td>
+                            <td class="text-left">{{item.toMobile}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Address &nbsp;</td>
+                            <td class="text-left">{{item.toAddress}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right">Description &nbsp;</td>
+                            <td class="text-left">{{item.toDescription}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div>&nbsp;</div>
+<div class="pull-right">
+        <span ng-if="urlParam === 'IN_PROGRESS' ">
+            <button class="btn btn-sm btn-success" ng-click="selectAction('ACCEPTED')">Accept</button>
+        </span>
+        <span ng-if="urlParam === 'IN_PROGRESS' || urlParam === 'ACCEPTED'">
+            <button class="btn btn-sm btn-primary" ng-click="doAction('PROCESSED')">Process</button>
+        </span>
+        <span ng-if="urlParam === 'IN_PROGRESS' || urlParam === 'ACCEPTED' || urlParam === 'PROCESSED'">
+            <button class="btn btn-sm btn-info" ng-click="doAction('DELIVERED')">Deliver</button>
+        </span>
+        <span ng-if="urlParam === 'IN_PROGRESS'">
+            <button class="btn btn-sm btn-danger" ng-click="selectAction('DECLINED')">Decline</button>
+        </span>
+</div>
+<!-- /.row -->
+</div>

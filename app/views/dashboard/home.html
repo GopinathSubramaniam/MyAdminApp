@@ -1,0 +1,40 @@
+<div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Dashboard</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+
+        <stats url="#/dashboard/orders/IN_PROGRESS" number="{{recentItems.pendingCount}}" comments="Pending Orders" colour="purple" type="list"></stats>
+        <stats url="#/dashboard/orders/ACCEPTED" number="{{recentItems.acceptedCount}}" comments="Accepted Orders" colour="primary" type="check"></stats>
+        <stats url="#/dashboard/orders/PROCESSED" number="{{recentItems.processedCount}}" comments="Processed Orders" colour="yellow" type="road"></stats>
+        <stats url="#/dashboard/orders/DELIVERED" number="{{recentItems.deliveredCount}}" comments="Delivered Orders" colour="green" type="hand-o-up"></stats>
+        <stats url="#/dashboard/orders/DECLINED" number="{{recentItems.declinedCount}}" comments="Declined Orders" colour="red" type="ban"></stats>
+
+    </div>
+
+    <!-- /.panel -->
+    <div class="row">
+        <div class="col-lg-8">
+            <chat></chat>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bell fa-fw"></i> Notifications Panel
+                </div>
+                <!-- /.panel-heading -->
+                <notifications></notifications>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-4 -->
+    </div>
+    <!-- /.row -->
+</div>
