@@ -77,12 +77,12 @@
             <button class="btn btn-sm btn-success" ng-click="selectAction('ACCEPTED')">Accept</button>
         </span>
         <span ng-if="urlParam === 'IN_PROGRESS' || urlParam === 'ACCEPTED'">
-            <button class="btn btn-sm btn-primary" ng-click="doAction('PROCESSED')">Process</button>
+            <button class="btn btn-sm btn-primary" ng-click="selectAction('PROCESSED')">Process</button>
         </span>
         <span ng-if="urlParam === 'IN_PROGRESS' || urlParam === 'ACCEPTED' || urlParam === 'PROCESSED'">
-            <button class="btn btn-sm btn-info" ng-click="doAction('DELIVERED')">Deliver</button>
+            <button class="btn btn-sm btn-info" ng-click="selectAction('DELIVERED')">Deliver</button>
         </span>
-        <span ng-if="urlParam === 'IN_PROGRESS'">
+        <span ng-if="urlParam === 'IN_PROGRESS' || urlParam === 'PROCESSED'">
             <button class="btn btn-sm btn-danger" ng-click="selectAction('DECLINED')">Decline</button>
         </span>
 </div>
