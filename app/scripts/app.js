@@ -158,6 +158,10 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
             templateUrl: 'views/ui-elements/notifications.html',
             url: '/notifications'
         })
+        .state('dashboard.profile', {
+            templateUrl: 'views/dashboard/profile.html',
+            url: '/profile'
+        })
 }]).constant('Properties', {
     'URL_BASE': 'http://localhost:8080/',
     'URL_USER': 'http://localhost:8080/user/',
