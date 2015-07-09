@@ -19,18 +19,19 @@
                                 <input class="form-control" placeholder="Password" ng-model="user.password" name="password" type="password" value="">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Enter Location" ng-model="location" name="location" type="text" >
+                                <select class="form-control" ng-model="city" ng-change="findByCity(city)" ng-options="city as city for city in cities"></select>
+                                <!--<input class="form-control" placeholder="Enter Location" ng-model="location" name="location" type="text" >-->
                             </div>
                             <div class="form-group">
                                 <label for="shop">Shop</label>
-                                <select class="form-control" id="shop" ng-model="shop" ng-change="findShopBranch()">
-                                    <option ng-repeat="shop in shops" value="{{shop.id}}"> {{shop.name}} </option>
+                                <select class="form-control" id="shop" ng-model="shop" ng-change="findShopBranch(shop)" ng-options="shop.id as shop.name for shop in shops">
+                                    <!--<option ng-model="shop" ng-repeat="shop in shops" value="{{shop.id}}"> <span ng-if="shop.name!=='' && shop.name!==undefined">{{shop.name}}</span> </option>-->
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="shopBranch">Branch</label>
-                                <select class="form-control" id="shopBranch" ng-model="shopBranch" ng-init="shopBranch[1]">
-                                    <option ng-repeat="shopBranch in shopBranches" value="{{shopBranch.address.id}}"> {{shopBranch.address.branch}} </option>
+                                <select class="form-control" id="shopBranch" ng-model="shopBranch" ng-options="shopBranch.address.id as shopBranch.address.branch for shopBranch in shopBranches">
+                                    <!--<option ng-repeat="shopBranch in shopBranches" value="{{shopBranch.address.id}}"> {{shopBranch.address.branch}} </option>-->
                                 </select>
                             </div>
                             <div class="checkbox">

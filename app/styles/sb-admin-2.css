@@ -64,7 +64,7 @@ body {
 .navbar-top-links .dropdown-messages,
 .navbar-top-links .dropdown-tasks,
 .navbar-top-links .dropdown-alerts {
-    width: 310px;
+    width: 220px;
     min-width: 0;
 }
 
@@ -213,7 +213,9 @@ body {
 .login-panel {
     margin-top: 25%;
 }
-
+.profile-panel{
+    margin-top: 1%;
+}
 .flot-chart {
     display: block;
     height: 400px;

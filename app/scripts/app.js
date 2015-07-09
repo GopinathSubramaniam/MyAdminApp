@@ -8,7 +8,7 @@
  * Main module of the application.
  */
 
-var AdminApp = angular.module('AdminApp', ['oc.lazyLoad', 'ui.router', 'ui.bootstrap', 'angular-loading-bar', 'ngResource', 'ngCookies']);
+var AdminApp = angular.module('AdminApp', ['oc.lazyLoad', 'ui.router', 'ui.bootstrap', 'angular-loading-bar', 'ngResource', 'ngCookies', 'ngTable']);
 
 AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
 
@@ -73,6 +73,7 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
                             'scripts/factories/shop-address-factory.js',
                             'scripts/factories/cus-shop-factory.js',
                             'scripts/factories/auth-factory.js',
+                            'scripts/services/address-service.js',
                             'scripts/controllers/auth-controller.js'
                         ]
                     })
@@ -92,6 +93,7 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
                             'scripts/factories/shop-address-factory.js',
                             'scripts/factories/cus-shop-factory.js',
                             'scripts/factories/auth-factory.js',
+                            'scripts/services/address-service.js',
                             'scripts/controllers/auth-controller.js'
                         ]
                     })
@@ -111,6 +113,7 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
                             'scripts/factories/shop-address-factory.js',
                             'scripts/factories/cus-shop-factory.js',
                             'scripts/factories/auth-factory.js',
+                            'scripts/services/address-service.js',
                             'scripts/controllers/auth-controller.js'
                         ]
                     })
@@ -128,6 +131,7 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
                         files: [
                             'bower_components/angular-cookies/angular-cookies.js',
                             'scripts/factories/dashboard-factory.js',
+                            'scripts/services/address-service.js',
                             'scripts/controllers/dashboard-controller.js',
                             'scripts/directives/timeline/timeline.js',
                             'scripts/directives/notifications/notifications.js',
@@ -160,7 +164,20 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
         })
         .state('dashboard.profile', {
             templateUrl: 'views/dashboard/profile.html',
-            url: '/profile'
+            url: '/profile',
+            controller: 'ProfileCtrl',
+            resolve: {
+                loadMyFiles: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'AdminApp',
+                        files: [
+                            'scripts/services/address-service.js',
+                            'scripts/factories/cus-shop-factory.js',
+                            'scripts/controllers/profile-controller.js',
+                        ]
+                    })
+                }
+            }
         })
 }]).constant('Properties', {
     'URL_BASE': 'http://localhost:8080/',
@@ -168,7 +185,12 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
     'URL_CUSTOMER': 'http://localhost:8080/customer/',
     'URL_SHOP_ADDRESS': 'http://localhost:8080/shopDetailAddress/',
     'URL_CUS_SHOP': 'http://localhost:8080/customerShopDetails/',
-    'URL_ORDER': 'http://localhost:8080/order/'
+    'URL_ORDER': 'http://localhost:8080/order/',
+    'URL_ADDRESS': 'http://localhost:8080/address/',
+    getCurrentTime: function(){
+        var date = new Date();
+        return date.getFullYear()+'-'+date.getMonth()+'-'+date.getDay()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'.'+date.getMilliseconds();
+    }
 });
 
     

@@ -1,3 +1,4 @@
+/*
 'use strict';
 
 describe('Controller: AboutCtrl', function () {
@@ -20,3 +21,4 @@ describe('Controller: AboutCtrl', function () {
     expect(scope.awesomeThings.length).toBe(3);
   });
 });
+*/

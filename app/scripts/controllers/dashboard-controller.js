@@ -1,7 +1,5 @@
-'use strict';
-
 AdminApp.controller('DashBoardCtrl', function ($scope, $position, $state, $cookieStore, DashBoardFactory) {
-
+    'use strict';
     console.log('$state = ', $state.params.status);
     $scope.urlParam = $state.params.status;
     if ($state.params.status !== undefined) {
