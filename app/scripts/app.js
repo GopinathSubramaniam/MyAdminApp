@@ -8,7 +8,7 @@
  * Main module of the application.
  */
 
-var AdminApp = angular.module('AdminApp', ['oc.lazyLoad', 'ui.router', 'ui.bootstrap', 'angular-loading-bar', 'ngResource', 'ngCookies', 'ngTable']);
+var AdminApp = angular.module('AdminApp', ['oc.lazyLoad', 'ui.router', 'ui.bootstrap', 'angular-loading-bar', 'ngResource', 'ngCookies', 'ngTable', 'ngDialog']);
 
 AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
 
@@ -32,7 +32,7 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
                                 'scripts/directives/header/header.js',
                                 'scripts/directives/header/header-notification/header-notification.js',
                                 'scripts/directives/sidebar/sidebar.js',
-                                'scripts/directives/sidebar/sidebar-search/sidebar-search.js'
+                                'scripts/directives/sidebar/sidebar-search/sidebar-search.js',
                             ]
                         }),
                         $ocLazyLoad.load(
@@ -175,7 +175,8 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
                             'scripts/services/customer-service.js',
                             'scripts/factories/cus-shop-factory.js',
                             'scripts/factories/shop-address-factory.js',
-                            'scripts/controllers/profile-controller.js'
+                            'scripts/controllers/profile-controller.js',
+                            'scripts/factories/address-factory.js'
                         ]
                     })
                 }
@@ -194,7 +195,8 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
                                 'scripts/services/customer-service.js',
                                 'scripts/factories/cus-shop-factory.js',
                                 'scripts/controllers/profile-controller.js',
-                                 'scripts/factories/shop-address-factory.js'
+                                'scripts/factories/shop-address-factory.js',
+                                'scripts/factories/address-factory.js'
                             ]
                         })
                     }
