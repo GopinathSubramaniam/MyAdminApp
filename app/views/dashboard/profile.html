@@ -1,5 +1,5 @@
 <div class="">
-    <form role="form">
+    <form role="form" ng-submit="update(customer)">
         <div class="col-sm-4 col-md-8 col-lg-12">
             <div class="profile-panel panel panel-default">
                 <div class="panel-heading">
@@ -7,39 +7,43 @@
                 </div>
                 <div class="panel-body">
                     <div class="col-sm-3 col-md-4 col-lg-6">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input class="form-control" placeholder="Name" ng-model="custShops[0].customer.name" name="customerName"
-                                   type="text">
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input class="form-control" placeholder="Name" ng-model="customer.name" name="customerName" type="text">
                         </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input class="form-control" placeholder="Email" ng-model="custShops[0].customer.email"
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            <input class="form-control" placeholder="Email" ng-model="customer.email"
                                    name="customerEmail"
                                    type="email">
                         </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input class="form-control" placeholder="Password" ng-model="custShops[0].customer.password"
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-dot-circle-o"></i></span>
+                            <input class="form-control" placeholder="Password" ng-model="customer.password"
                                    name="customerPassword"
-                                   type="text">
+                                   type="password">
                         </div>
                     </div>
                     <div class="col-sm-3 col-md-4 col-lg-6">
-                        <div class="form-group">
-                            <label>Mobile</label>
-                            <input class="form-control" placeholder="Mobile" ng-model="custShops[0].customer.mobile"
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+                            <input class="form-control" placeholder="Mobile" ng-model="customer.mobile"
                                    name="customer.mobile"
                                    type="text">
                         </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input class="form-control" placeholder="Phone" ng-model="custShops[0].customer.phone"
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                            <input class="form-control" placeholder="Phone" ng-model="customer.phone"
                                    name="customer.phone"
                                    type="text">
                         </div>
                     </div>
+                    <div class="col-sm-4 col-md-8 col-lg-12">
+                        <button class="btn btn-primary btn-sm" type="submit">Update</button> <a href="#/dashboard/home" class="btn btn-warning btn-sm" type="button">Cancel</a>
+                        <font size="2" color="#2b542c"><b><span id="msg" class="hidden">Updated successfully</span></b></font>
+                    </div>
                 </div>
+
             </div>
         </div>
         <div class="col-sm-4 col-md-8 col-lg-12">
@@ -66,81 +70,11 @@
                     </td>
                     <td data-title="''" header-class="'text-left'">
                         <a href="#"><i class="glyphicon glyphicon-remove-circle"></i></a>
-                        <a href="#"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="#/dashboard/edit/{{ custShop.shopDetail.id }}"><i class="glyphicon glyphicon-edit"></i></a>
                     </td>
                     </tbody>
                 </table>
             </div>
-        </div>
-        <!--<div class="col-sm-1 col-md-2 col-lg-4">-->
-            <!--<div class="login-panel panel panel-default">-->
-                <!--<div class="panel-heading">-->
-                    <!--<h3 class="panel-title">Shop Detail</h3>-->
-                <!--</div>-->
-                <!--<div class="panel-body">-->
-                    <!--<div class="form-group">-->
-                        <!--<input class="form-control" placeholder="Shop Name" ng-model="shopDetail.name"-->
-                               <!--name="shopName"-->
-                               <!--type="text">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<input class="form-control" placeholder="Website" ng-model="shopDetail.website"-->
-                               <!--name="shopWebsite"-->
-                               <!--type="text">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<input class="form-control" placeholder="Register Number"-->
-                               <!--ng-model="shopDetail.registerNumber"-->
-                               <!--name="shopRegisterNumber"-->
-                               <!--type="text">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<input class="form-control" placeholder="Mobile" ng-model="shopDetail.mobile"-->
-                               <!--name="customer.mobile"-->
-                               <!--type="text">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<input class="form-control" placeholder="Phone" ng-model="shopDetail.phone"-->
-                               <!--name="customer.phone"-->
-                               <!--type="text">-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-sm-1 col-md-2 col-lg-4">-->
-            <!--<div class="login-panel panel panel-default">-->
-                <!--<div class="panel-heading">-->
-                    <!--<h3 class="panel-title">Shop Address</h3>-->
-                <!--</div>-->
-                <!--<div class="panel-body">-->
-                    <!--<div class="form-group">-->
-                        <!--<input class="form-control" placeholder="Street" ng-model="address.street" name="shopStreet"-->
-                               <!--type="text" autofocus>-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<input class="form-control" placeholder="City" ng-model="address.city" name="shopCity"-->
-                               <!--type="text" value="">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<input class="form-control" placeholder="Branch" ng-model="address.branch" name="shopBranch"-->
-                               <!--type="text">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<input class="form-control" placeholder="State" ng-model="address.state" name="shopState"-->
-                               <!--type="text">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<input class="form-control" placeholder="PinCode" ng-model="address.pinCode"-->
-                               <!--name="shopPinCode"-->
-                               <!--type="text">-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <div class="col-sm-4 col-md-8 col-lg-12">
-            <!--<div class="col-sm-2 col-md4 col-lg-6">-->
-                <button class="btn btn-primary" type="submit">Update</button>
-            <!--</div>-->
         </div>
     </form>
 </div>

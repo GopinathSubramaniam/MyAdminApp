@@ -172,13 +172,34 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
                         name: 'AdminApp',
                         files: [
                             'scripts/services/address-service.js',
+                            'scripts/services/customer-service.js',
                             'scripts/factories/cus-shop-factory.js',
-                            'scripts/controllers/profile-controller.js',
+                            'scripts/factories/shop-address-factory.js',
+                            'scripts/controllers/profile-controller.js'
                         ]
                     })
                 }
             }
         })
+        .state('dashboard.editProfile', {
+                templateUrl: 'views/dashboard/edit-profile.html',
+                url: '/edit/:id',
+                controller: 'ProfileCtrl',
+                resolve: {
+                    loadMyFiles: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'AdminApp',
+                            files: [
+                                'scripts/services/address-service.js',
+                                'scripts/services/customer-service.js',
+                                'scripts/factories/cus-shop-factory.js',
+                                'scripts/controllers/profile-controller.js',
+                                 'scripts/factories/shop-address-factory.js'
+                            ]
+                        })
+                    }
+                }
+            })
 }]).constant('Properties', {
     'URL_BASE': 'http://localhost:8080/',
     'URL_USER': 'http://localhost:8080/user/',
