@@ -19,9 +19,8 @@ AdminApp.directive('headerNotification', function () {
             }
 
             $scope.findRecentItems = function(){
-                AddressService.findRecentOrders().success(function(res){
+                AddressService.findRecentOrders($cookieStore.get('shopId')).success(function(res){
                     $scope.recentItemsCount = res.length;
-                    console.log('Length = ', res.length);
                 });
             }
 

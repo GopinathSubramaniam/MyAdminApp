@@ -173,6 +173,7 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
                         files: [
                             'scripts/services/address-service.js',
                             'scripts/services/customer-service.js',
+                             'scripts/services/shopdetail-service.js',
                             'scripts/factories/cus-shop-factory.js',
                             'scripts/factories/shop-address-factory.js',
                             'scripts/controllers/profile-controller.js',
@@ -193,6 +194,7 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
                             files: [
                                 'scripts/services/address-service.js',
                                 'scripts/services/customer-service.js',
+                                'scripts/services/shopdetail-service.js',
                                 'scripts/factories/cus-shop-factory.js',
                                 'scripts/controllers/profile-controller.js',
                                 'scripts/factories/shop-address-factory.js',
@@ -210,6 +212,7 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
     'URL_CUS_SHOP': 'http://localhost:8080/customerShopDetails/',
     'URL_ORDER': 'http://localhost:8080/order/',
     'URL_ADDRESS': 'http://localhost:8080/address/',
+    'URL_SHOP_DETAIL': 'http://localhost:8080/shopDetail/',
     getCurrentTime: function(){
         var date = new Date();
         return date.getFullYear()+'-'+date.getMonth()+'-'+date.getDay()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'.'+date.getMilliseconds();

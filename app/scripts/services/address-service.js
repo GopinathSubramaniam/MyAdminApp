@@ -8,8 +8,11 @@ AdminApp.service('AddressService', function(Properties, $http){
            return $http.get(Properties.URL_ADDRESS+'findDistinctCityAndState');
 
         },
-        findRecentOrders: function(){
-            return $http.get(Properties.URL_ORDER+'findRecentItems');
+        findRecentOrders: function(shopId){
+            return $http.get(Properties.URL_ORDER+'findRecentItems/'+shopId);
+        },
+        saveAndUpdate: function(data){
+            return $http.post(Properties.URL_ADDRESS, data);
         }
 
 
