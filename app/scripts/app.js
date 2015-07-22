@@ -8,7 +8,7 @@
  * Main module of the application.
  */
 
-var AdminApp = angular.module('AdminApp', ['oc.lazyLoad', 'ui.router', 'ui.bootstrap', 'angular-loading-bar', 'ngResource', 'ngCookies', 'ngTable', 'ngDialog']);
+var AdminApp = angular.module('AdminApp', ['oc.lazyLoad', 'ui.router', 'ui.bootstrap', 'angular-loading-bar', 'ngResource', 'ngCookies', 'ngTable', 'ngDialog', 'stompie']);
 
 AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
 

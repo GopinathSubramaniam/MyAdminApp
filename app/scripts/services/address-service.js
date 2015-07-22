@@ -13,6 +13,10 @@ AdminApp.service('AddressService', function(Properties, $http){
         },
         saveAndUpdate: function(data){
             return $http.post(Properties.URL_ADDRESS, data);
+        },
+        getRecentOrderCount: function(shopId){
+            return $http.get(Properties.URL_ORDER+'findItemsCount/'+shopId);
+        
         }
 
 

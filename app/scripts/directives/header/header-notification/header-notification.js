@@ -18,15 +18,15 @@ AdminApp.directive('headerNotification', function () {
                 window.location.href="/";
             }
 
-            $scope.findRecentItems = function(){
-                AddressService.findRecentOrders($cookieStore.get('shopId')).success(function(res){
-                    $scope.recentItemsCount = res.length;
+            $scope.getRecentOrderCount = function(){
+                AddressService.getRecentOrderCount($cookieStore.get('shopId')).success(function(res){
+                    $scope.pendingOrderCount = res.pendingCount;
                 });
             }
 
-            $scope.findRecentItems();
+            $scope.getRecentOrderCount();
             $interval(function(){
-                $scope.findRecentItems();
+                $scope.getRecentOrderCount();
             }, 10000);
 
 
