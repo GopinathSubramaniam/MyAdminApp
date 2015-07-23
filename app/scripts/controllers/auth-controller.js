@@ -1,7 +1,7 @@
 'use strict';
 
-AdminApp.controller('AuthCtrl', ['$scope', '$position', '$location', '$cookieStore', 'AuthFactory', 'ShopAddFactory', 'AddressService',
-                    function ($scope, $position, $location, $cookieStore, AuthFactory, ShopAddFactory, AddressService) {
+AdminApp.controller('AuthCtrl', ['$scope', '$position', '$location', '$cookieStore', 'AuthFactory', 'ShopAddFactory', 'AddressService', 'Properties',
+                    function ($scope, $position, $location, $cookieStore, AuthFactory, ShopAddFactory, AddressService, Properties) {
 
 
     $scope.awesomeThings = ["Good", "Bad", "Ok"];
@@ -70,7 +70,8 @@ AdminApp.controller('AuthCtrl', ['$scope', '$position', '$location', '$cookieSto
         console.log('shopId = ', shopId, 'shopAddId = ', shopAddId);
         AuthFactory.doLogin({shopId: shopId, shopAddressId: shopAddId}, JSON.stringify(customer), function (res) {
             var resEmail = res.email;
-
+            Properties.saveInLocalDB('userName', res.name);
+            
             if (resEmail !== 'INVALID_CREDENTIALS' && resEmail !== 'INVALID_SHOP') {
                 $cookieStore.put('customerId', res.id);
                 $cookieStore.put('shopId', shopId);

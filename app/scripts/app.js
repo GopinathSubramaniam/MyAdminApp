@@ -132,6 +132,7 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
                             'bower_components/angular-cookies/angular-cookies.js',
                             'scripts/factories/dashboard-factory.js',
                             'scripts/services/address-service.js',
+                            'scripts/services/chat-service.js',
                             'scripts/controllers/dashboard-controller.js',
                             'scripts/directives/timeline/timeline.js',
                             'scripts/directives/notifications/notifications.js',
@@ -214,6 +215,7 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
     'URL_ADDRESS': 'http://localhost:8080/address/',
     'URL_SHOP_DETAIL': 'http://localhost:8080/shopDetail/',
     'SOCKET_CHAT_URL': 'http://localhost:8080/service',
+    'CHAT_GET_ONLINE_USERS_COUNT': 'http://localhost:8080/getOnlineUsersCount/',
     
     getCurrentTime: function(){
         var date = new Date();
@@ -224,6 +226,9 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
     },
     getFromLocalDB: function(key){
         return window.localStorage.getItem(key);
+    },
+    removeFromLocalDB : function(key){
+        window.localStorage.remove(key);
     }
 });
 
