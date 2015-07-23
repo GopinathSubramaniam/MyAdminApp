@@ -213,9 +213,17 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
     'URL_ORDER': 'http://localhost:8080/order/',
     'URL_ADDRESS': 'http://localhost:8080/address/',
     'URL_SHOP_DETAIL': 'http://localhost:8080/shopDetail/',
+    'SOCKET_CHAT_URL': 'http://localhost:8080/service',
+    
     getCurrentTime: function(){
         var date = new Date();
-        return date.getFullYear()+'-'+date.getMonth()+'-'+date.getDay()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'.'+date.getMilliseconds();
+        return date.getFullYear()+'-'+date.getMonth()+'-'+date.getDay()+'           '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'.'+date.getMilliseconds();
+    },
+    saveInLocalDB : function(key, val){
+        window.localStorage.setItem(key, val);
+    },
+    getFromLocalDB: function(key){
+        return window.localStorage.getItem(key);
     }
 });
 
