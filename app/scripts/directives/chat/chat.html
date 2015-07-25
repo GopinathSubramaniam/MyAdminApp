@@ -4,14 +4,16 @@
         Chat - Online ( {{onlineUserCount}} )
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-chevron-down"></i>
+                <i class="fa fa-chevron-down">
+                    <span ng-if="onlineStatus.onlineStatus === 'ONLINE'">
+                        <img src="../../../images/online.png" style="width: 35%;"/> 
+                    </span>  
+                    <span ng-if="onlineStatus.onlineStatus === 'OFFLINE'"> 
+                         <img src="../../../images/donot_distrub.jpg"/> Do not distrub 
+                    </span>  
+                </i>
             </button>
             <ul class="dropdown-menu slidedown">
-                <li>
-                    <a href="#">
-                        <i class="fa fa-refresh fa-fw"></i> Refresh
-                    </a>
-                </li>
                 <li>
                     <a href="#">
                         <i class="fa fa-check-circle fa-fw"></i> Available
@@ -19,18 +21,7 @@
                 </li>
                 <li>
                     <a href="#">
-                        <i class="fa fa-times fa-fw"></i> Busy
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-clock-o fa-fw"></i> Away
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-sign-out fa-fw"></i> Sign Out
+                        <i class="fa fa-remove fa-fw"></i> Do not distrub
                     </a>
                 </li>
             </ul>
@@ -38,25 +29,14 @@
     </div>
     <!-- /.panel-heading -->
     <div class="panel-body">
-        <ul class="chat" id="chat">
-            
-            <!--<li class="left clearfix">
-                <span class="chat-img pull-left">
-                    <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle">
-                </span>
-                <div class="chat-body clearfix">
-                    <div class="header">
-                        <strong class="primary-font">Jack Sparrow</strong>
-                        <small class="pull-right text-muted">
-                            <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
-                        </small>
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                    </p>
-                </div>
+        <ul class="chat">
+           <li class="left clearfix" id="chat">
+               
+                   
+                
             </li>
-            <li class="right clearfix">
+             
+            <!--<li class="right clearfix">
                 <span class="chat-img pull-right">
                     <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle">
                 </span>
@@ -70,38 +50,9 @@
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
                     </p>
                 </div>
-            </li>
-            <li class="left clearfix">
-                <span class="chat-img pull-left">
-                    <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle">
-                </span>
-                <div class="chat-body clearfix">
-                    <div class="header">
-                        <strong class="primary-font">Jack Sparrow</strong>
-                        <small class="pull-right text-muted">
-                            <i class="fa fa-clock-o fa-fw"></i> 14 mins ago</small>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                        </p>
-                </div>
-            </li>
-            <li class="right clearfix">
-                <span class="chat-img pull-right">
-                    <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle">
-                </span>
-                <div class="chat-body clearfix">
-                    <div class="header">
-                        <small class=" text-muted">
-                            <i class="fa fa-clock-o fa-fw"></i> 15 mins ago</small>
-                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                    </p>
-                </div>
-            </li>
--->        </ul>
+            </li>--> 
+           
+       </ul>
     </div>
                 <!-- /.panel-body -->
     <div class="panel-footer">

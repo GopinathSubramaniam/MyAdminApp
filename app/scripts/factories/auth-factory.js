@@ -5,7 +5,7 @@
 AdminApp.factory('AuthFactory', function ($resource, Properties) {
     'use strict';
 
-    return $resource(Properties.URL_CUSTOMER + ':auth/:shopId/:shopAddressId', {
+    return $resource(Properties.URL_CUSTOMER + ':auth/:shopId/:shopAddressId/:logout/:customerId', {
         customerVo: '@customerVo',
         shopId: '@shopId',
         shopAddressId: '@shopAddressId',
@@ -20,6 +20,12 @@ AdminApp.factory('AuthFactory', function ($resource, Properties) {
             method: 'POST',
             params: {'auth': 'auth', user: '@user', shopId: '@shopId', shopAddressId: '@shopAddressId'},
             isArray: false
+        },
+        doLogout: {
+            method: 'GET',
+            params: {logout: 'logout', customerId: '@customerId'},
+            isArray: false
+        
         }
 
     });

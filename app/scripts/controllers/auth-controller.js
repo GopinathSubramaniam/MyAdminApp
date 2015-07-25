@@ -73,7 +73,8 @@ AdminApp.controller('AuthCtrl', ['$scope', '$position', '$location', '$cookieSto
             Properties.saveInLocalDB('userName', res.name);
             
             if (resEmail !== 'INVALID_CREDENTIALS' && resEmail !== 'INVALID_SHOP') {
-                $cookieStore.put('customerId', res.id);
+                $cookieStore.put('customerId', res.customer.id);
+                $cookieStore.put('customer', res);
                 $cookieStore.put('shopId', shopId);
                 $cookieStore.put('shopAddId', shopAddId);
 

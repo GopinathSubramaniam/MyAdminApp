@@ -11,47 +11,50 @@ AdminApp.directive('chat',function(){
             templateUrl:'scripts/directives/chat/chat.html',
             restrict: 'E',
             replace: true,
-            controller: function($scope, $stompie, $window, $interval, Properties, ChatService){
+            controller: function($scope, $stompie, $window, $interval, $cookieStore, Properties, AuthFactory, ChatService){
+                $scope.onlineStatus = $cookieStore.get('customer');
+                $scope.createChatTemplete = function(userName, msg){
+                    return '<span class="chat-img pull-left">'+
+                                '<img src="../../../images/default-user.png" alt="User Avatar" class="img-circle">'+
+                                '</span><div class="chat-body clearfix" ><div class="header">'+
+                                '<strong class="primary-font">'+userName+'</strong>'+
+                                '<small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw"></i> 12 mins ago </small></div>'+
+                                '<p >'+msg +' </p></div>';
+                };
+               
+                $scope.onlineCustomersCount = function(){
+                    ChatService.getOnlineCustomers().success(function(res){
+                            $scope.onlineUserCount = res.length;
+                    });
+                };
+                
+                $scope.onlineCustomersCount();
+                $interval(function(){
+                    $scope.onlineCustomersCount();
+                }, 10000);
                 
                 $stompie.using('http://localhost:8080/service', function (frame) {
-                   
-                    $scope.getOnlineUsersCount('CHAT', 'CONNECTED', 'NEW');
-                    $interval(function(){
-                         $scope.getOnlineUsersCount('CHAT', 'CONNECTED', 'CHECK');
-                    }, 10000);
                     $stompie.subscribe('/startChat/greetings', function (data, headers, res) {
-                        console.log('Message received = ', data, headers, res);
-                        angular.element('#chat').append(data.name +': '+data.msg+'<br/>');
+                        $scope.onlineCustomersCount();
+                        angular.element('#chat').append($scope.createChatTemplete(data.name, data.msg));
                     });
                 });
                 
                 $scope.sendMsg = function(){
-                    var userName =  Properties.getFromLocalDB('userName');
+                    var userName = $cookieStore.get('customer').customer.name;
                     var msg = angular.element('.chatMsg').val();
                     angular.element('.chatMsg').val('');
                     $stompie.send('/courier/service', {msg: msg, name: userName});
                 };
-            
-                $scope.disconnect = function(){
-                    $stompie.disconnect(function (data) {
-                        $scope.getOnlineUsersCount('CHAT', 'DISCONNECTED', 'CLOSE');
-                    });
-                };
-                
-                $window.onbeforeunload = function(event){
-                    $scope.disconnect();
-                    
-                    return confirm("Confirm refresh");
-                };
-                
-                $scope.getOnlineUsersCount = function(type, connection, connType){
-                    ChatService.getOnlineUsersCount(type, connection, connType).success(function(resp){
-                            $scope.onlineUserCount = resp;
-                        }).error(function(){
-                            $scope.onlineUserCount = 0;
-                        });
-                };
 
+                $scope.disconnect = function(){
+                     $stompie.disconnect(function (data) {});
+                };
+                
+                $window.onbeforeunload = function(){
+                     $stompie.disconnect(function (data) {});
+                };
+                
             }
     	}
 	});

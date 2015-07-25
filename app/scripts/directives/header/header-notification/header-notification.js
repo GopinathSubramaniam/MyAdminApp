@@ -11,11 +11,15 @@ AdminApp.directive('headerNotification', function () {
         templateUrl: 'scripts/directives/header/header-notification/header-notification.html',
         restrict: 'E',
         replace: true,
-        controller: function ($cookieStore, $scope, $location, $interval, AddressService) {
+        controller: function ($cookieStore, $scope, $location, $interval, AddressService, AuthFactory) {
             $scope.doLogout = function () {
-                console.log('user Id = ', $cookieStore.get('userId'));
-                $cookieStore.remove('userId');
-                window.location.href="/";
+                var customerId = $cookieStore.get('customerId');
+                AuthFactory.doLogout({customerId: customerId}, function(res){
+                    $cookieStore.remove('customerId');
+                    $cookieStore.remove('shopId');
+                    $cookieStore.remove('shopAddId');
+                    if(res.onlineStatus === 'OFFLINE') window.location.href="/";
+                });
             }
 
             $scope.getRecentOrderCount = function(){
