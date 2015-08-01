@@ -1,0 +1,31 @@
+<div>&nbsp;</div>
+<div class="row">
+    <div>
+        <button class="btn btn-primary btn-sm" ng-click="showComposeMail()"><i class="glyphicon glyphicon-edit"></i></button>
+         <button class="btn btn-primary btn-sm" ng-click="showComposeMail()"><i class="glyphicon glyphicon-remove"></i></button>
+
+    </div>
+    <hr>
+    <div class="panel panel-default" ng-repeat="mail in mails">
+        <div class="accordion__tab">
+            <div class="accordion__tab-title">
+                <input type="checkbox" class="checkbox" ng-checked="false"/>
+                    <span ng-click="openTab(mail.id)">
+                        <span class="pull-right" style="padding-top: 3.5px">
+                           <i class="fa fa-remove fa-fw"></i></span>
+                           <span style="cursor: pointer">
+                               <small>From : {{ mail.shopId }}</small>
+                               <small>Subject: {{ mail.subject }}</small>
+                           </span>
+                        </span>
+            </div>
+            <div class="col-lg-12 col-md-10 col-sm-6 accordion__tab-content" ng-show="isOpenTab(mail.id)">
+                <div class="col-md-6">
+                    {{ mail.message }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

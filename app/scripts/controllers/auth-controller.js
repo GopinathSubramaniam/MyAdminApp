@@ -1,8 +1,9 @@
-'use strict';
-
+/* 
+* Author - Gopi
+*/
 AdminApp.controller('AuthCtrl', ['$scope', '$position', '$location', '$cookieStore', 'AuthFactory', 'ShopAddFactory', 'AddressService', 'Properties',
                     function ($scope, $position, $location, $cookieStore, AuthFactory, ShopAddFactory, AddressService, Properties) {
-
+'use strict';
 
     $scope.awesomeThings = ["Good", "Bad", "Ok"];
     AddressService.findDistinctCityAndState().success(function(res){

@@ -204,7 +204,28 @@ AdminApp.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 
                         })
                     }
                 }
-            })
+        }).state('dashboard.inbox', {
+                templateUrl: 'views/dashboard/inbox.html',
+                url: 'inbox',
+                controller: 'InboxCtrl',
+                resolve:{
+                    loadMyFiles: function($ocLazyLoad){
+                     return $ocLazyLoad.load({
+                        name: 'AdminApp',
+                        files:[
+                                'scripts/controllers/inbox-controller.js',
+                                'scripts/factories/inbox-factory.js',
+                                'scripts/services/address-service.js',
+                                'scripts/factories/user-factory.js'
+                        ]
+                     
+                     });
+                    
+                    }
+                
+                }
+    
+    })
 }]).constant('Properties', {
     'URL_BASE': 'http://localhost:8080/',
     'URL_USER': 'http://localhost:8080/user/',
